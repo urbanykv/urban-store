@@ -1,11 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import './itemProduto.css'
-import { carrinhoArray } from "../carrinho/script";
-import { addCarrinho } from "../itemProduto/script";
+
 
 
 
 const ItemProduto = props => {
+
+    const [dataCarrinho, setDataCarrinho] = useState([]);
 
     return(
         <div className="card-produto">
@@ -14,7 +15,7 @@ const ItemProduto = props => {
                 <h3 className="nomeItem">{props.nome}</h3>
                 <span className="categoriaItem">{props.categoria}</span>
                 <span className="precoItem">R$ {props.preco}</span>
-                <button className="adcCarrinho"><img src="assets/adicionar-carrinho.svg" alt="Adicionar Carrinho"/></button>
+                <button className="adcCarrinho"><img src="assets/adicionar-carrinho.svg" alt="Adicionar Carrinho" /></button>
             </div>
         </div>
     )
