@@ -1,0 +1,39 @@
+#card-carrinho{
+    display: none;
+    flex-direction: column;
+    background-color: rgb(39, 39, 39);
+    width: 240px;
+    color: white;
+    padding: 20px;
+    position: absolute;
+    top: 50px;
+    right: -10px;
+    z-index: 2;
+}
+
+#card-carrinho:hover{
+    display: flex;
+}
+
+#carrinho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#carrinho:hover + #card-carrinho{
+    display: flex;
+}
+
+.aba-cart{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}

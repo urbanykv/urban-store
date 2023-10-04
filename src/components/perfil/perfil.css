@@ -1,0 +1,40 @@
+#card-perfil{
+    display: none;
+    flex-direction: column;
+    background-color: rgb(39, 39, 39);
+    width: 240px;
+    height: 150px;
+    color: white;
+    padding: 20px;
+    position: absolute;
+    top: 50px;
+    right: -10px;
+    z-index: 2;
+}
+
+#card-perfil:hover{
+    display: flex;
+}
+
+#perfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#perfil:hover + #card-perfil{
+    display: flex;
+}
+
+.aba-perfil{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
