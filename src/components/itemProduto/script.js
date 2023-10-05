@@ -1,10 +1,7 @@
 import React from "react";
 import './itemProduto.css'
 
-
-
-
-const ItemProduto = (props, {addNoCarrinho}) => {
+const ItemProduto = (props) => {
 
     return(
         <div className="card-produto">
@@ -13,7 +10,7 @@ const ItemProduto = (props, {addNoCarrinho}) => {
                 <h3 className="nomeItem">{props.nome}</h3>
                 <span className="categoriaItem">{props.categoria}</span>
                 <span className="precoItem">R$ {props.preco}</span>
-                <button className="adcCarrinho"><img src="assets/adicionar-carrinho.svg" alt="Adicionar Carrinho" onClick={() => addNoCarrinho(produto)}/></button>
+                <button className="adcCarrinho" onClick={props.onClick}><img src="assets/adicionar-carrinho.svg" alt="Adicionar Carrinho"/></button>
             </div>
         </div>
     )
