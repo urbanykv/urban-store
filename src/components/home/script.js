@@ -3,9 +3,9 @@ import './home.css'
 import ItemProduto from "../itemProduto/script";
 import { produtos } from "../../database";
 
-const Home = () => {
+const Home = ({addNoCarrinho}) => {
 
-    const [dataCarrinho, setDataCarrinho] = useState([]);
+  
 
     const [itensTenis, setItensTenis] = useState(produtos);
 
@@ -40,9 +40,6 @@ const Home = () => {
         }
     }
 
-    const addNoCarrinho = (produtoAdd) => {
-        setDataCarrinho([... dataCarrinho, produtoAdd]);
-      };
 
     return(
         <main className="home">
@@ -55,24 +52,6 @@ const Home = () => {
             </div>
             <section className="all-products" id="produtos">
                 <h2>Produtos</h2>
-                <div className="aba-cart">
-            <div id="carrinho"><img src="assets/carrinho.svg" alt="Carrinho"/></div>
-            <section id="card-carrinho">
-                <h3>Carrinho</h3>
-                <div className="lista-itens">
-                    {dataCarrinho.map((itemCarrinho) => (<div className="card-produtoCarrinho">
-                            <img src={itemCarrinho.imagem} alt={itemCarrinho.nome} className="imagemItemCarrinho"/>
-                            <div className="infoItemCarrinho">
-                                    <h3 className="nomeItemCarrinho">{itemCarrinho.nome}</h3>
-                                    <span className="categoriaItemCarrinho">{itemCarrinho.categoria}</span>
-                                    <span className="precoItemCarrinho">R$ {itemCarrinho.preco}</span>
-                                    <button className="rmvCarrinho"><img src="assets/remover-carrinho.svg" alt="Adicionar Carrinho"/></button>
-                                </div>
-                            </div>))}
-                        </div>
-                        <span>{}</span>
-                    </section>
-                </div>
                 <section className="sessao-produtos">
                     <section className="filtros">
                             <button className="filter-ap" onClick={todosTenis}>Remover filtros</button>
