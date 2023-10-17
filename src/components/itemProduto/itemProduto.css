@@ -3,14 +3,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 280px;
+    width: 240px;
     background-color: white;
     border-radius: 15px;
 }
 
 .imagemItem{
     border-radius: 15px 15px 0px 0px;
-    width: 280px;
+    width: 240px;
     object-fit: cover;
     object-position: center;
 }
@@ -21,12 +21,16 @@
     justify-content: center;
     align-items: flex-start;
     padding: 0px 15px;
+    width: 210px;
 }
 
 .nomeItem{
+    display: flex;
+    align-items: center;
     text-align: left;
-    width: 250px;
+    width: 210px;
     height: 40px;
+    font-size: 16px;
     justify-self: flex-start;
 }
 
@@ -38,6 +42,7 @@
 .precoItem{
     font-weight: bold;
     height: 25px;
+    font-size: 15px;
 }
 
 .adcCarrinho{

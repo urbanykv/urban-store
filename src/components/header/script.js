@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './header.css'
 import Perfil from "../perfil/script";
 
-const Header = ({dataCarrinho}) => {
+const Header = ({dataCarrinho, removerDoCarrinho}) => {
 
     const [header, setHeader] = useState('header');
 
@@ -14,6 +14,9 @@ const Header = ({dataCarrinho}) => {
         }
     })
 
+    const precoTotal = dataCarrinho.reduce((total, produto) => total + produto.preco, 0);
+
+
     return(
         <header className={header}>
                 <img src="assets/logo-urban-store.png" alt="Logo Urban Store" id="logo-urban-store"/>
@@ -23,7 +26,7 @@ const Header = ({dataCarrinho}) => {
             <div id="carrinho"><img src="assets/carrinho.svg" alt="Carrinho"/></div>
                 <section id="card-carrinho">
                     <h3>Carrinho</h3>
-                    <span>{`Total de produtos: ${dataCarrinho.length}`}</span>
+                    <span className="span-carrinho">{`Total de produtos: ${dataCarrinho.length}`}</span>
                     <div className="lista-itens">
                     {dataCarrinho.map((itemCarrinho) => (<div className="card-produtoCarrinho">
                             <img src={itemCarrinho.imagem} alt={itemCarrinho.nome} className="imagemItemCarrinho"/>
@@ -31,11 +34,11 @@ const Header = ({dataCarrinho}) => {
                                     <h3 className="nomeItemCarrinho">{itemCarrinho.nome}</h3>
                                     <span className="categoriaItemCarrinho">{itemCarrinho.categoria}</span>
                                     <span className="precoItemCarrinho">R$ {itemCarrinho.preco}</span>
-                                    <button className="rmvCarrinho"><img src="assets/remover-carrinho.svg" alt="Adicionar Carrinho"/></button>
+                                    <button className="rmvCarrinho"><img src="assets/remover-carrinho.svg" alt="Remover Carrinho" onClick={() => removerDoCarrinho(itemCarrinho.id)}/></button>
                                 </div>
                             </div>))}
                         </div>
-
+                        <span className="span-carrinho">{`Total a pagar: R$${precoTotal.toLocaleString('pt-BR')}`}</span>
                     </section>
                 </div>
             </section>
