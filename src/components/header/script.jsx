@@ -28,12 +28,16 @@ const Header = ({dataCarrinho, removerDoCarrinho}) => {
                     <h3>Carrinho</h3>
                     <span className="span-carrinho">{`Total de produtos: ${dataCarrinho.length}`}</span>
                     <div className="lista-itens">
-                    {dataCarrinho.map((itemCarrinho) => (<div className="card-produtoCarrinho">
+                    {dataCarrinho.map((itemCarrinho) => (<div className="card-produtoCarrinho"
+                    key={itemCarrinho.id}>
                             <img src={itemCarrinho.imagem} alt={itemCarrinho.nome} className="imagemItemCarrinho"/>
                             <div className="infoItemCarrinho">
                                     <h3 className="nomeItemCarrinho">{itemCarrinho.nome}</h3>
                                     <span className="categoriaItemCarrinho">{itemCarrinho.categoria}</span>
                                     <span className="precoItemCarrinho">R$ {itemCarrinho.preco}</span>
+                                    <span className="precoItemCarrinho">Qtd: {itemCarrinho.quantidade}</span>
+                                    <span className="precoItemCarrinho">
+                                        Numeração: {itemCarrinho.numeroEscolhido}</span>
                                     <button className="rmvCarrinho"><img src="assets/remover-carrinho.svg" alt="Remover Carrinho" onClick={() => removerDoCarrinho(itemCarrinho.id)}/></button>
                                 </div>
                             </div>))}

@@ -64,3 +64,10 @@
     background-color: rgb(0, 175, 0);
     border: 2px solid rgb(0, 151, 0);
 }
+
+.selecionar-numero{
+    padding: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.596);
+    border-radius: 5px;
+    margin-top: 5px;
+}

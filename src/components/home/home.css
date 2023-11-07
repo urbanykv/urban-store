@@ -154,7 +154,7 @@
 }
 
 #card-carrinho{
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -165,7 +165,7 @@
     padding: 20px;
     position: absolute;
     top: 50px;
-    right: -110px;
+    right: -10px;
     z-index: 1;
 }
 
@@ -220,7 +220,6 @@
     background-color: white;
     border-radius: 15px;
     gap: 10px;
- 
 }
 
 .imagemItemCarrinho{
@@ -253,8 +252,9 @@
     text-align: left;
     justify-self: flex-start;
     height: 60px;
-    width: 200px;
-    margin-top: -3px;
+    width: 250px;
+    margin-top: -2px;
+    margin-bottom: 3px;
 }
 
 .categoriaItemCarrinho{
@@ -297,4 +297,30 @@
 
 .span-carrinho{
     padding: 10px 0px;
+}
+
+/*notificacões*/
+
+.notificacao-add{
+    display: none;
+    background-color: rgb(2, 180, 2);
+    border-radius: 5px;
+    border: 2px solid green;
+    width: 300px;
+    height: 80px;
+    position: fixed;
+    bottom: 55px;
+    left: 15px;
+}
+
+.notificacao-add-ativo{
+    display: flex;
+    background-color: rgb(2, 180, 2);
+    border-radius: 5px;
+    border: 2px solid green;
+    width: 300px;
+    height: 80px;
+    position: fixed;
+    bottom: 55px;
+    left: 15px;
 }

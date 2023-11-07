@@ -3,7 +3,7 @@ import './home.css'
 import ItemProduto from "../itemProduto/script";
 import { produtos } from "../../database";
 
-const Home = ({addNoCarrinho}) => {
+const Home = ({addNoCarrinho, notifyAdd}) => {
 
   
 
@@ -87,9 +87,13 @@ const Home = ({addNoCarrinho}) => {
                                 categoria={produto.categoria}
                                 preco={produto.preco}
                                 onClick={() => addNoCarrinho(produto)}
+                                numero={produto.numero}
                                 />
                             ))
                         }
+                    </div>
+                    <div className={notifyAdd}>
+                        <p>Item adicionado com sucesso ao carrinho!</p>
                     </div>
                 </section>
             </section>
