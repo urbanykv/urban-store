@@ -1,12 +1,11 @@
 import './App.css';
+import Footer from './components/footer/script';
 import Header from './components/header/script';
 import Home from './components/home/script';
 import React, { useState, useEffect } from "react";
 
 
 function App() {
-
-  const select = document.querySelector('.selecionar-numero');
 
   let [bloqueioClick, setBloqueioClick] = useState(true)
 
@@ -28,7 +27,7 @@ function App() {
       setBloqueioClick(false);
     }else{
       setBloqueioClick(false);
-      setDataCarrinho([...dataCarrinho, { ...produtoAdd, quantidade: 1, numeroEscolhido: select.value}]);
+      setDataCarrinho([...dataCarrinho, { ...produtoAdd, quantidade: 1}]);
     }
     console.log(bloqueioClick);
     setNotificacaoAdd("notificacao-add-ativo")
@@ -70,6 +69,7 @@ function App() {
     <div className="App">
       <Header dataCarrinho={dataCarrinho} removerDoCarrinho={removerDoCarrinho}/>
       <Home notifyAdd={notificacaoAdd} addNoCarrinho={addNoCarrinho}/>
+      <Footer/>
     </div>
   );
 }

@@ -36,8 +36,6 @@ const Header = ({dataCarrinho, removerDoCarrinho}) => {
                                     <span className="categoriaItemCarrinho">{itemCarrinho.categoria}</span>
                                     <span className="precoItemCarrinho">R$ {itemCarrinho.preco}</span>
                                     <span className="precoItemCarrinho">Qtd: {itemCarrinho.quantidade}</span>
-                                    <span className="precoItemCarrinho">
-                                        Numeração: {itemCarrinho.numeroEscolhido}</span>
                                     <button className="rmvCarrinho"><img src="assets/remover-carrinho.svg" alt="Remover Carrinho" onClick={() => removerDoCarrinho(itemCarrinho.id)}/></button>
                                 </div>
                             </div>))}

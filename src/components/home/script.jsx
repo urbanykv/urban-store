@@ -4,9 +4,7 @@ import ItemProduto from "../itemProduto/script";
 import { produtos } from "../../database";
 
 const Home = ({addNoCarrinho, notifyAdd}) => {
-
-  
-
+    
     const [itensTenis, setItensTenis] = useState(produtos);
 
     const [textoBusca, setTextoBusca] = useState("");

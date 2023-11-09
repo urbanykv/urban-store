@@ -10,13 +10,6 @@ const ItemProduto = (props) => {
                 <h3 className="nomeItem">{props.nome}</h3>
                 <span className="categoriaItem">{props.categoria}</span>
                 <span className="precoItem">R$ {props.preco}</span>
-                <select className="selecionar-numero">
-                    {props.numero.map(numero => (
-                        <option value={numero} className="numero" key={numero}>
-                            {numero}
-                        </option>
-                    ))}
-                </select>
                 <button className="adcCarrinho" onClick={props.onClick}><img src="assets/adicionar-carrinho.svg" alt="Adicionar Carrinho"/></button>
             </div>
         </div>
