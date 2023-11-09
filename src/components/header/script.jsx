@@ -19,7 +19,9 @@ const Header = ({dataCarrinho, removerDoCarrinho}) => {
 
     return(
         <header className={header}>
-                <img src="assets/logo-urban-store.png" alt="Logo Urban Store" id="logo-urban-store"/>
+                <a href="#">
+                    <img src="assets/logo-urban-store.png" alt="Logo Urban Store" id="logo-urban-store"/>
+                </a>
             <section className="perfil-options">
                 <Perfil/>
                 <div className="aba-cart">
