@@ -1,0 +1,40 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    padding: 25px 0;
+    margin-top: -16px;
+    width: 100%;
+    height: 400px;
+    background-color: #000000;
+    color: white;
+}
+
+.nav-redes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-redes img{
+    width: 25px;
+}
+
+.footer hr{
+    width: 80%;
+}
+
+.informacoes-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.informacoes-footer p{
+    width: 75%;
+    font-size: 15px;
+}
