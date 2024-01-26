@@ -7,8 +7,8 @@ const SignProvider = ({ children }: ISignModalProvider) => {
   const [ activeLogin, setActiveLogin ] = useState(false);
   const [ activeSign, setActiveSign ] = useState(false);
 
-  const toogleLoginModal = () => setActiveLogin(!activeLogin ? true : false);
-  const toogleSignModal = () => setActiveSign(!activeSign ? true : false);
+  const toogleLoginModal = () => !activeLogin ? setActiveLogin(true) : setActiveLogin(false);
+  const toogleSignModal = () => !activeSign ? setActiveSign(true) : setActiveSign(false);
 
   return (
     <SignContext.Provider value={{ toogleLoginModal, toogleSignModal, activeLogin, activeSign }}>

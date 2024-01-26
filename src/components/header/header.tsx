@@ -4,15 +4,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContextFile/authContext";
 import userIcon from "../../assets/icons/perfil.svg";
 import marketIcon from "../../assets/icons/carrinho.svg";
+import { SignContext } from "../../contexts/signModalContext/signModalContext";
 
 
 const Header = () => {
 
   const { user } = useContext(AuthContext)!;
-
-  const toogleSign = (buttonType: string) => {
-
-  };
+  const {toogleLoginModal, toogleSignModal} = useContext(SignContext)!;
 
   return(
     <HeaderContainer>
@@ -21,14 +19,14 @@ const Header = () => {
         <ButtonColumn>
           {
             user.email === undefined ? 
-              <ButtonLogin>Entrar</ButtonLogin> : 
+              <ButtonLogin onClick={toogleLoginModal}>Entrar</ButtonLogin> : 
               <ButtonHeader><img src={userIcon} alt="User Icon" /></ButtonHeader>
           }
         </ButtonColumn>
         <ButtonColumn>
           {
             user.email === undefined ? 
-              <ButtonLogin>Cadastrar</ButtonLogin> : 
+              <ButtonLogin onClick={toogleSignModal}>Cadastrar</ButtonLogin> : 
               <ButtonHeader><img src={marketIcon} alt="Market Icon" /></ButtonHeader>
           }
         </ButtonColumn>
