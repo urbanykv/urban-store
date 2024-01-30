@@ -5,10 +5,14 @@ import { useContext } from "react";
 import { SignContext } from "../../contexts/signModalContext/signModalContext";
 import { useForm, SubmitHandler } from "react-hook-form"
 import { IInputsLogin, IInputsSign } from "./type";
+import { AuthContext } from "../../contexts/authContextFile/authContext";
+import { ILoginData } from "../../contexts/authContextFile/type";
 
 const SignForm = () => {
 
-  const {toogleLoginModal, toogleSignModal, activeLogin, activeSign} = useContext(SignContext)
+  const { toogleLoginModal, toogleSignModal, activeLogin, activeSign } = useContext(SignContext)
+
+  const { user, handleLogin } = useContext(AuthContext)
 
   const {
     control: controlLogin,
@@ -17,30 +21,35 @@ const SignForm = () => {
   } = useForm<IInputsLogin>({
     mode: "onChange",
   })
-  const onSubmitSign: SubmitHandler<IInputsLogin> = (data) => console.log(data)
+
+  const onSubmitLogin: SubmitHandler<IInputsLogin> = (data) => {
+    console.log(data);
+    handleLogin(data)
+  }
 
   const {
     control: controlSign,
     handleSubmit: handleSubmitSign,
     formState: { errors: errorSign },
   } = useForm<IInputsSign>()
-  const onSubmitLogin: SubmitHandler<IInputsSign> = (data) => console.log(data)
+
+  const onSubmitSign: SubmitHandler<IInputsSign> = (data) => console.log(data)
 
 
   return(
-    <BackgroundContainer isActiveLogin={activeLogin} isActiveSign={activeSign}>
+    <BackgroundContainer isActiveLogin={activeLogin} isActiveSign={activeSign} onSubmit={handleSubmitLogin(onSubmitLogin)}>
       <LoginFormContainer isActiveLogin={activeLogin}>
         <XButton type="button" onClick={() => toogleLoginModal()}><img src={xis} alt="X" /></XButton>
-        <Input controlLogin={controlLogin} inputTypeForm="loginForm" label="Email" idInputLogin="email" typeInput="email" placeholder="example@mail.com"/>
-        <Input controlLogin={controlLogin} inputTypeForm="loginForm" label="Senha" idInputLogin="senha" typeInput="password" placeholder="Ex4mple123."/>
+        <Input controlLogin={controlLogin} inputTypeForm="loginForm" label="Email" idInputLogin="email" idInputSign="null" typeInput="email" placeholder="example@mail.com"/>
+        <Input controlLogin={controlLogin} inputTypeForm="loginForm" label="Senha" idInputLogin="password" idInputSign="null" typeInput="password" placeholder="Ex4mple123."/>
         <SubmitButton type="submit">Entrar</SubmitButton>
       </LoginFormContainer>
-      <SignFormContainer isActiveSign={activeSign}>
+      <SignFormContainer isActiveSign={activeSign} onSubmit={handleSubmitSign(onSubmitSign)}>
         <XButton type="button" onClick={() => toogleSignModal()}><img src={xis} alt="X" /></XButton>
-        <Input controlSign={controlSign} inputTypeForm="signForm" label="Username"  idInputSign="username" typeInput="text" placeholder="username"/>
-        <Input controlSign={controlSign} inputTypeForm="signForm" label="Email" idInputSign="emailCadastro" typeInput="text" placeholder="example@mail.com"/>
-        <Input controlSign={controlSign} inputTypeForm="signForm" label="Senha" idInputSign="senhaCadastro" typeInput="password" placeholder="Ex4mple123."/>
-        <Input controlSign={controlSign} inputTypeForm="signForm" label="Confirme a Senha" idInputSign="confirmSenha" typeInput="password" placeholder="Ex4mple123."/>
+        <Input controlSign={controlSign} inputTypeForm="signForm" label="Username"  idInputSign="username" idInputLogin="null" typeInput="text" placeholder="username"/>
+        <Input controlSign={controlSign} inputTypeForm="signForm" label="Email" idInputSign="emailCadastro" idInputLogin="null" typeInput="text" placeholder="example@mail.com"/>
+        <Input controlSign={controlSign} inputTypeForm="signForm" label="Senha" idInputSign="passwordCadastro" idInputLogin="null" typeInput="password" placeholder="Ex4mple123."/>
+        <Input controlSign={controlSign} inputTypeForm="signForm" label="Confirme a Senha" idInputSign="confirmPassword" idInputLogin="null" typeInput="password" placeholder="Ex4mple123."/>
         <SubmitButton type="submit">Cadastrar</SubmitButton>
       </SignFormContainer>
     </BackgroundContainer>

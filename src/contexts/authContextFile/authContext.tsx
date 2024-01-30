@@ -8,14 +8,15 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const [ user, setUser ] = useState<IUser>({} as IUser);
 
   const handleLogin = async (loginData: ILoginData) => {
-    
+    setUser(loginData)
+    console.log(loginData);
   };
 
   return (
-    <AuthContext.Provider value={{ user }}>
+    <AuthContext.Provider value={{ user, handleLogin }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export {AuthProvider, AuthContext};
+export { AuthContext, AuthProvider }

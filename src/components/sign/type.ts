@@ -1,11 +1,13 @@
 export interface IInputsLogin {
   email: string;
-  senha: string;
+  password: string;
+  null: string;
 }
 
 export interface IInputsSign {
   username: string;
   emailCadastro: string;
-  senhaCadastro: string;
-  confirmSenha: string;
+  passwordCadastro: string;
+  confirmPassword: string;
+  null: string;
 }
