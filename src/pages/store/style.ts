@@ -9,3 +9,4 @@ export const StoreContainer = styled.div`
   align-items: center;
   background-color: #161616;
 `;
+
