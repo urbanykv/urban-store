@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { MainStoreContainer, ProdutoContainer } from "./style"
+import { MainStoreContainer } from "./style"
+import { IProdutos } from "./type";
+import CardProduct from "../cardProduct/cardProduct";
 
 const MainStore = () => {
 
@@ -9,19 +11,23 @@ const MainStore = () => {
     fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
             .then(dados => {
-              console.log(dados[0].title);
+              console.log(dados);
               setDadosApi(dados)
             })
   }, [])
 
-  console.log(dadosApi.length);
-
   return(
     <MainStoreContainer>
       {
-        dadosApi.length && dadosApi.map((produto) => (
-          <ProdutoContainer>
-          </ProdutoContainer> 
+        dadosApi.length && dadosApi.map((produto: IProdutos) => (
+          <CardProduct 
+            id={produto.id} 
+            title={produto.title}
+            description={produto.description}
+            price={produto.price}
+            image={produto.image}
+            rating={produto.rating}
+          />
         ))
       }
     </MainStoreContainer>

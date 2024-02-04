@@ -6,7 +6,3 @@ export const MainStoreContainer = styled.div`
   background: red;
 `;
 
-export const ProdutoContainer = styled.div`
-  width: 300px;
-  height: 250px;
-`;

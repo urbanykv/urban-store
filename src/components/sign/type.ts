@@ -1,7 +1,7 @@
 export interface IInputsLogin {
   email: string;
   password: string;
-  null: string;
+  null?: null;
 }
 
 export interface IInputsSign {
@@ -9,5 +9,5 @@ export interface IInputsSign {
   emailCadastro: string;
   passwordCadastro: string;
   confirmPassword: string;
-  null: string;
+  null?: string;
 }
