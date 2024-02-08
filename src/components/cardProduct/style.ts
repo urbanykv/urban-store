@@ -7,20 +7,24 @@ export const ProdutoContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #171717;
+  background-color: #303030;
+  border: 3px solid #303030;
+  border-radius: 20px;
   margin: 15px;
   & > img{
-    width: 250px;
-    height: 150px;
-    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+    width: 215px;
+    height: 250px;
     background: #fff;
   }
 `;
 
 export const InfoContainer = styled.div`
-  width: 280px;
-  height: 250px;
+  width: 220px;
+  height: 240px;
   display: flex;
   justify-content: start;
   align-items: center;
+  border-radius: 20px;
+  background: #303030;
 `;
