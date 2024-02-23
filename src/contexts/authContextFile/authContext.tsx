@@ -1,13 +1,13 @@
 import { createContext, useState } from 'react';
-import { IAuthContext, IAuthProvider, ILoginData } from './type';
-import { IUser } from '../../types/type';
+import { IAuthContext, ILoginData } from './type';
+import { ChildrenProvider, IUser } from '../../types/type';
 
 const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
-const AuthProvider = ({ children }: IAuthProvider) => {
+const AuthProvider = ({ children }: ChildrenProvider) => {
   const [ user, setUser ] = useState<IUser>({} as IUser);
 
-  const handleLogin = async (loginData: ILoginData) => {
+  const handleLogin = (loginData: ILoginData) => {
     setUser(loginData)
     console.log(loginData);
   };

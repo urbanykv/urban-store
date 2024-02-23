@@ -10,7 +10,6 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import InputLogin from "../input/inputLogin";
 import InputSign from "../input/inputSign";
-import { log } from "console";
 
 const schemaLogin = yup
   .object({

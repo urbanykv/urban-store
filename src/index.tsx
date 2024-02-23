@@ -4,6 +4,7 @@ import App from './App';
 import { GlobalStyle } from './styles/global';
 import { AuthProvider } from './contexts/authContextFile/authContext';
 import { SignProvider } from './contexts/signModalContext/signModalContext';
+import { LoadingProvider } from './contexts/loadingContext/loadingContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,8 +13,10 @@ root.render(
   <React.StrictMode>
     <SignProvider>
       <AuthProvider>
-        <GlobalStyle />
-        <App />
+        <LoadingProvider>
+          <GlobalStyle />
+          <App />
+        </LoadingProvider>
       </AuthProvider>
     </SignProvider>
   </React.StrictMode>

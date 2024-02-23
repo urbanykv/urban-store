@@ -1,21 +1,28 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MainStoreContainer } from "./style"
 import { IProdutos } from "./type";
 import CardProduct from "../cardProduct/cardProduct";
+import { LoadingContext } from "../../contexts/loadingContext/loadingContext";
+
 
 const MainStore = () => {
 
-  const [ dadosApi, setDadosApi ] = useState([])
+  const { setToggleLoading } = useContext(LoadingContext);
+
+  const [ dadosApi, setDadosApi ] = useState([]);
+
 
   useEffect(() => {
+    setToggleLoading(true);
     fetch('https://fakestoreapi.com/products')
-            .then(res => res.json())
-            .then(dados => {
-              console.log(dados);
-              setDadosApi(dados)
-            })
-  }, [])
-
+    .then(res => res.json())
+    .then(dados => {
+      console.log(dados);
+      setDadosApi(dados);
+      setToggleLoading(false);
+    })
+  },[setToggleLoading]);
+  
   return(
     <MainStoreContainer>
       {
