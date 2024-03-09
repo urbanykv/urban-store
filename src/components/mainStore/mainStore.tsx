@@ -14,7 +14,7 @@ const MainStore = () => {
 
   useEffect(() => {
     setToggleLoading(true);
-    fetch('https://fakestoreapi.com/products')
+    fetch('https://urban-store-backend.onrender.com/produtos')
     .then(res => res.json())
     .then(dados => {
       console.log(dados);
@@ -29,10 +29,10 @@ const MainStore = () => {
         dadosApi.length && dadosApi.map((produto: IProdutos) => (
           <CardProduct 
             id={produto.id} 
-            title={produto.title}
-            description={produto.description}
-            price={produto.price}
-            image={produto.image}
+            nome={produto.nome}
+            descricao={produto.descricao}
+            preco={produto.preco}
+            imagem={produto.imagem}
             rating={produto.rating}
           />
         ))
