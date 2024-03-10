@@ -7,7 +7,6 @@ export const SlideContainer = styled.div`
   justify-content: center;
   align-items: center;
   user-select: none;
-  cursor: pointer;
 `;
 
 export const SlideImage = styled.img`
